@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>UK Houses</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> -->
+</head>
+<body>
+    <main >
+        <h1 >Property search</h1>
+        <p>Display all the remote house in UK.</p>
+        <py-config>
+        [[fetch]]
+        files = ["./houses.db"]
+        </py-config>
+        <py-script src="./main_house_search.py"></py-script>
+        <form id="form">
+            <div>
+                <label for="desc_search" >Description:</label>
+                <input type="text" id="desc_search" name="desc_search" placeholder="Enter terms to search for " size="80">
+            </div>
+            <br>
+            <div>
+                <label for="min_price" >Min Price:</label>
+                <input type="number" id="min_price" name="min_price" min="400000" max="2000000" value="400000" size="20">
+                <label for="max_price" >Max Price:</label>
+                <input type="number" id="max_price" name="max_price" min="100000" max="20000000" value="1750000" size="20" ><br>                
+                <label for="min_bed" >Min bedrooms:</label>
+                <input type="number" id="min_bed" name="min_bed" min="0" max="20" value="0" ><br>
+                <label for="pop-dty" >Population density/km less than:</label>
+                <input type="number" id="pop-dty" name="pop-dty" min="0" max="1000" value="20" >
+            </div>
+            <br>
+
+            <div>
+                <label for="choose_county">Choose County:</label>
+                <select id="choose_county" name="choose_county" >
+                    <option value="to be replaced"></option>
+                </select>
+                <!-- <label for="type">Choose House Type:</label>
+                <select id="type" name="type" multiple size="3">
+                    <option value="to be replaced"></option>
+                </select> -->
+            </div>
+            <div>
+                <input type="reset">
+
+                <button type="button" id="search" py-click="select_data()" >Search</button>
+            </div><br>
+
+        </form>
+        <figure>
+            <h4> House <span id = "house_count"> </span> of <span id = "house_len"></span></h4>
+            <a id ="prop_image"> <img id ="img" src="src"> </a>
+            <figcaption id="caption"> </figcaption>
+        </figure>
+        <div>
+            picture 
+            <button id="back" py-click="back_handler()">
+            BACK
+            </button>
+            <button id="next" py-click="next_handler()">
+            NEXT
+            </button><br>
+        </div>
+        <div>
+            House 
+            <button id="back" py-click="house_back_handler()">
+            BACK
+            </button>
+            <button id="next" py-click="house_next_handler()">
+            NEXT
+            </button><br>
+        </div>  
+        <address>
+            <h2 >Address:</h2>
+            <p id="address"> address</p>
+        </address>
+        <div>
+            <span>Price:</span><span id="price"> price </span><br>
+            <span>Density: 1km  radius = </span>&nbsp;<span id="den_1"> 1km </span>&nbsp;<span>2km radius = </span>&nbsp;<span id="den_2">  2km </span>&nbsp;<span>5km radius = </span>&nbsp;<span id="den_5">  5km</span><br>
+            
+            <span>Bedrooms:</span>
+            <span id="bed"> bed </span><br>       
+            <span>Bathrooms:</span>
+            <span id="bath"> bath </span><br>
+            <span>County:</span>
+            <span id="county"> county </span> <br>
+            <span>Type of Property:</span>
+            <span id="type"> type </span><br>      
+        </div>
+        <div>
+            <h2 >Description:</h2>
+            <p id="description">description</p>
+        </div>
+        <div>
+            <a id ="property"> Property Link </a>
+        </div>  
+  
+    </main>
+</body>
+</html>

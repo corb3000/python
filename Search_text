@@ -1,0 +1,189 @@
+{
+  "id": 135681659,
+  "bedrooms": 8,
+  "bathrooms": 5,
+  "numberOfImages": 19,
+  "numberOfFloorplans": 1,
+  "numberOfVirtualTours": 0,
+  "summary": "Converted barns and associated outbuildings with potential for further development currently operating as a successful holiday business situated in the peaceful rural former farming hamlet of Coombe Farm. 2 Full Residential Properties, Successful Letting Business, Outbuildings with Potential, App...",
+  "displayAddress": "Herodsfoot, St. Keyne, Liskeard",
+  "countryCode": "GB",
+  "location": {
+    "latitude": 50.417884,
+    "longitude": -4.500914
+  },
+  "propertyImages": {
+    "images": [
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_00_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_00_0000.jpeg",
+        "caption": "986383 (4)e.jpg"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_01_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_01_0000.jpeg",
+        "caption": "The Byre"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_02_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_02_0000.jpeg",
+        "caption": "The Byre"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_03_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_03_0000.jpeg",
+        "caption": "Well Cottage"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_04_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_04_0000.jpeg",
+        "caption": "Well Cottage"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_05_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_05_0000.jpeg",
+        "caption": "986376 (4) e.jpg"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_06_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_06_0000.jpeg",
+        "caption": "The Byre"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_07_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_07_0000.jpeg",
+        "caption": "The Byre"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_08_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_08_0000.jpeg",
+        "caption": "The Byre"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_09_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_09_0000.jpeg",
+        "caption": "986376 (17).jpg"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_10_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_10_0000.jpeg",
+        "caption": "986376 (16).jpg"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_11_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_11_0000.jpeg",
+        "caption": "986383 (5)e.jpg"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_12_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_12_0000.jpeg",
+        "caption": "Well Cottage"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_13_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_13_0000.jpeg",
+        "caption": "Well Cottage"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_14_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_14_0000.jpeg",
+        "caption": "The Byre"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_15_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_15_0000.jpeg",
+        "caption": "Well Cottage"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_16_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_16_0000.jpeg",
+        "caption": "986376 (9).jpg"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_17_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_17_0000.jpeg",
+        "caption": "986383 (18).jpg"
+      },
+      {
+        "srcUrl": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_18_0000_max_476x317.jpeg",
+        "url": "45k/44513/135681659/44513_32364050_IMG_18_0000.jpeg",
+        "caption": "986376 (2) e.jpg"
+      }
+    ],
+    "mainImageSrc": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_00_0000_max_476x317.jpeg",
+    "mainMapImageSrc": "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/45k/44513/135681659/44513_32364050_IMG_00_0000_max_296x197.jpeg"
+  },
+  "propertySubType": "Detached",
+  "listingUpdate": {
+    "listingUpdateReason": "new",
+    "listingUpdateDate": "2023-06-04T12:37:54Z"
+  },
+  "premiumListing": false,
+  "featuredProperty": true,
+  "price": {
+    "amount": 1375000,
+    "frequency": "not specified",
+    "currencyCode": "GBP",
+    "displayPrices": [
+      {
+        "displayPrice": "\u00a31,375,000",
+        "displayPriceQualifier": "Guide Price"
+      }
+    ]
+  },
+  "customer": {
+    "branchId": 44513,
+    "brandPlusLogoURI": "/company/clogo_rmchoice_13724_0004.jpeg",
+    "contactTelephone": "01566 708728",
+    "branchDisplayName": "Stags, Launceston",
+    "branchName": "Launceston",
+    "brandTradingName": "Stags",
+    "branchLandingPageUrl": "/estate-agents/agent/Stags/Launceston-44513.html",
+    "development": false,
+    "showReducedProperties": true,
+    "commercial": false,
+    "showOnMap": true,
+    "enhancedListing": false,
+    "developmentContent": null,
+    "buildToRent": false,
+    "buildToRentBenefits": [],
+    "brandPlusLogoUrl": "https://media.rightmove.co.uk:443/dir/company/clogo_rmchoice_13724_0004_max_100x50.jpeg"
+  },
+  "distance": null,
+  "transactionType": "buy",
+  "productLabel": {
+    "productLabelText": "",
+    "spotlightLabel": false
+  },
+  "commercial": false,
+  "development": false,
+  "residential": true,
+  "students": false,
+  "auction": false,
+  "feesApply": false,
+  "feesApplyText": null,
+  "displaySize": "",
+  "showOnMap": true,
+  "propertyUrl": "/properties/135681659#/?channel=RES_BUY",
+  "contactUrl": "/property-for-sale/contactBranch.html?propertyId=135681659",
+  "staticMapUrl": null,
+  "channel": "BUY",
+  "firstVisibleDate": "2023-06-04T12:32:22Z",
+  "keywords": [],
+  "keywordMatchType": "no_keyword",
+  "saved": false,
+  "hidden": false,
+  "onlineViewingsAvailable": false,
+  "lozengeModel": {
+    "matchingLozenges": []
+  },
+  "hasBrandPlus": true,
+  "displayStatus": "",
+  "enquiredTimestamp": null,
+  "heading": "Featured Property",
+  "addedOrReduced": "Added on 04/06/2023",
+  "formattedBranchName": " by Stags, Launceston",
+  "formattedDistance": "",
+  "propertyTypeFullDescription": "8 bedroom detached house for sale",
+  "isRecent": false,
+  "enhancedListing": false
