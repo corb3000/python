@@ -107,18 +107,6 @@ def geoToGrid(long, lat):
     g = latlong2grid(lat, long, tag = "WGS84")
     return int(g.E/1000-4), int(g.N/1000-7)
 
-# def geoToGrid(long, lat):
-    
-#     latToKm50 = 111.2253
-#     deltaLat = 0.01866666667
-#     longToKm = 111.4 #was 111.46
-#     bottomLat = 49.945 # was 49.88
-#     commonLong = -2.99 # middle of map in longitude
-#     refX = 326 
-#     y = int((lat - bottomLat) * ((lat -50) * deltaLat + latToKm50))
-#     x = int((long - commonLong) * longToKm * (math.cos(math.radians(lat))) + refX)
-#     return x, y
-
 
 
 def main(args=None):

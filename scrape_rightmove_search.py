@@ -10,7 +10,8 @@ from httpx import AsyncClient, Response
 import jmespath
 from typing_extensions import TypedDict
 import sqlite3
-import time
+from datetime import datetime
+
 
 # 1. establish HTTP client with browser-like headers to avoid being blocked
 client = AsyncClient(
@@ -36,7 +37,7 @@ async def find_locations(query: str) -> List[str]:
     return [prediction["locationIdentifier"] for prediction in data["typeAheadLocations"]]
 
 
-async def scrape_search(location_id: str) -> dict:
+async def scrape_search(location_id: str, min_price: int, max_price: int, days_old: str) -> dict:
     RESULTS_PER_PAGE = 24
 
     def make_url(offset: int) -> str:
@@ -53,9 +54,11 @@ async def scrape_search(location_id: str) -> dict:
             "radius": "0.0",
             "sortType": "6",
             "viewType": "LIST",
-            "minPrice": "500000",
-            "maxPrice": "800000",
-            "propertyTypes": ["detached", "land"]
+            "minPrice": min_price,
+            "maxPrice": max_price,
+            "propertyTypes": ["detached", "land"],
+            "maxDaysSinceAdded": days_old
+            
         }
         url_param =(url + urlencode(params , doseq=True))
         # print(url_param)
@@ -64,39 +67,42 @@ async def scrape_search(location_id: str) -> dict:
     first_page = await client.get(make_url(0))
     first_page_data = json.loads(first_page.content)
     total_results = int(first_page_data['resultCount'].replace(',', ''))
-    print(f"total results= {total_results}")
-    print(first_page.status_code)
+    print(f"total results = {total_results} at price {min_price}")
+    # print(first_page.status_code)
     results = first_page_data['properties']
     
     other_pages = []
 
     for offset in range(start + RESULTS_PER_PAGE, total_results, RESULTS_PER_PAGE):
         next_page = await client.get(make_url(offset))
-        print(next_page.status_code, offset)
+        
         if next_page.status_code == 200:
             data = json.loads(next_page.text)
             results.extend(data['properties'])
+        else:
+            print(f"Failed with code {next_page.status_code}, at offset {offset}")
 
-        # else:
-        #     time.sleep(10)
-        #     next_page = await client.get(make_url(offset))
-        #     if next_page.status_code == 200:
-        #         data = json.loads(next_page.text)
-        #         results.extend(data['properties'])
-        #     else:
-        #         print("failed second time")
     return results
 
 # Example run:
 async def run():
-    county = "somerset"
-    cornwall_id = (await find_locations(county))[0]
-    print(cornwall_id)
-    # cornwall_id = "REGION^61322" # somerset as find location dose not seem to work
-    cornwall_results = await scrape_search(cornwall_id)
-
+    now = datetime.now()
+    seconds = now.strftime("%s") # seconds since epoch
+    day = int(int(seconds)/86400) # days since epoch
+    # setup table with search parameters
+    conn = sqlite3.connect('houses.db')
+    cur = conn.cursor()  
+    cur.execute("""CREATE TABLE IF NOT EXISTS searchlog(
+        region TEXT PRIMARY KEY,
+        region_code TEXT,
+        min_price INT,
+        max_price INT,
+        day_scraped INT);
+        """)
+    conn.commit() 
+    
     parse_map = {
-        # from top area of the page: basic info, videos and photos
+        # from top area of the page: basic info and photos
         "id": "id",
         "bedrooms": "bedrooms",
         "bathrooms": "bathrooms",
@@ -112,8 +118,7 @@ async def run():
         "url": "propertyUrl",
         "propertyImages": "propertyImages.images"
     }
-    conn = sqlite3.connect('houses.db')
-    cur = conn.cursor()
+
     cur.execute("""CREATE TABLE IF NOT EXISTS house(
         id INT PRIMARY KEY,
         bedrooms INT,
@@ -134,23 +139,57 @@ async def run():
         density_3k REAL,
         density_5k REAL);
     """)
-    conn.commit()
-    results = {}
-    for property in cornwall_results:
-        for key, path in parse_map.items():
-            value = jmespath.search(path, property)
-            if type(value) is list:
-                value = json.dumps(value)
-        
-            results[key] = value     
-        results["county"] = county
-        query = 'INSERT or REPLACE INTO house ({}) VALUES ({})'.format(
-            ','.join(results.keys()),
-            ','.join(['?']*len(results)))
-        # print(results)
+    conn.commit()    
 
-        cur.execute(query, tuple(results.values()))
+    cur.execute("SELECT * FROM searchlog")
+    searchLog = cur.fetchall()
+
+    for search_region in searchLog:
+        county = search_region[0]
+        region = search_region[1]
+        min_price = search_region[2]
+        max_price = search_region[3]
+        age = day - search_region[4]
+        # Check how long since last scrape 
+        days_old =""
+        if age < 3:
+            days_old = "3"        
+        if age < 7:
+            days_old = "7" 
+        if age < 14:
+            days_old = "14"
+        if not region :
+            region_id = (await find_locations(county))[0]
+        else: 
+            region_id = region
+        print(f"searching {county} with region ID {region_id}")
+        step_size = 100000
+        for price in range(min_price, max_price, step_size):
+
+            region_results = await scrape_search(region_id, price, price + step_size, days_old)
+
+            results = {}
+            for property in region_results:
+                for key, path in parse_map.items():
+                    value = jmespath.search(path, property)
+                    if type(value) is list:
+                        value = json.dumps(value)
+                
+                    results[key] = value     
+                results["county"] = county
+                query = 'INSERT or REPLACE INTO house ({}) VALUES ({})'.format(
+                    ','.join(results.keys()),
+                    ','.join(['?']*len(results)))
+                # print(results)
+
+                cur.execute(query, tuple(results.values()))
+                conn.commit()
+            # Finished one price range
+        # finished a region
+
+        cur.execute("UPDATE searchlog SET day_scraped = ? WHERE region = ?", (day, county))
         conn.commit()
+
     conn.close()
 
 
